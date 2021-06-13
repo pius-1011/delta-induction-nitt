@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+        :root {
+            --m: 5;
+            --n: 3 --size: 50px;
+        }
+
+        * {
+            font-family: 'roboto mono';
+        }
+
+        button {
+            border-radius: 5px;
+            padding: 5px 10px;
+            background-color: #555555;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        body {
+            color: white;
+            background-color: #050d17f2;
+        }
+
+
+        .tile {
+            border: 3px solid white;
+            width: 50px;
+            height: 50px;
+        }
+
+        #cursor {
+            border: 3px solid red;
+            border-radius: 30px;
+        }
+
+        #target {
+            margin: 10px;
+            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(3, 60px);
+            grid-template-rows: repeat(3, 60px);
+        }
+
+        #board {
+            margin: 10px;
+            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(5, 60px);
+            grid-template-rows: repeat(5, 60px);
+        }
+
+        .wrap {
+            margin: auto;
+            justify-content: center;
+            display: flex;
+        }
+
+        #time,
+        #steps {
+            justify-content: center;
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid" id="target">
+        <div class="tile" id="target1"></div>
+        <div class="tile" id="target2"></div>
+        <div class="tile" id="target3"></div>
+        <div class="tile" id="target4"></div>
+        <div class="tile" id="target5"></div>
+        <div class="tile" id="target6"></div>
+        <div class="tile" id="target7"></div>
+        <div class="tile" id="target8"></div>
+        <div class="tile" id="target9"></div>
+    </div>
+    <div class="grid" id="board">
+        <div class="tile" id="board1"></div>
+        <div class="tile" id="board2"></div>
+        <div class="tile" id="board3"></div>
+        <div class="tile" id="board4"></div>
+        <div class="tile" id="board5"></div>
+        <div class="tile" id="board6"></div>
+        <div class="tile" id="board7"></div>
+        <div class="tile" id="board8"></div>
+        <div class="tile" id="board9"></div>
+        <div class="tile" id="board10"></div>
+        <div class="tile" id="board11"></div>
+        <div class="tile" id="board12"></div>
+        <div class="tile" id="board13"></div>
+        <div class="tile" id="board14"></div>
+        <div class="tile" id="board15"></div>
+        <div class="tile" id="board16"></div>
+        <div class="tile" id="board17"></div>
+        <div class="tile" id="board18"></div>
+        <div class="tile" id="board19"></div>
+        <div class="tile" id="board20"></div>
+        <div class="tile" id="board21"></div>
+        <div class="tile" id="board22"></div>
+        <div class="tile" id="board23"></div>
+        <div class="tile" id="board24"></div>
+        <div class="tile" id="board25"></div>
+    </div>
+    <div class="wrap">Time (seconds): </div>
+    <div id="time"></div>
+    <script src="induction_task.js"></script>
+    <div class="wrap">Steps: </div>
+    <div id="steps">0</div>
+    <script src="scr.js"></script>
+    <div class="wrap">
+        <button onClick="window.location.reload();">Reset</button>
+    </div>
+</body>
+
+</html>
