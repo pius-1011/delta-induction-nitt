@@ -54,7 +54,7 @@ class Grids {
         this.steps = 0;
         this.start_time = Date.now();
         this.running = true;
-        this.difficulty = 100;
+        this.difficulty = 50;
         this.score = 0;
 
         // initialize two 2d matrices 
@@ -121,12 +121,11 @@ class Grids {
             }
             else if (.50 <= toss < .75) {
                 this.move_up();
-                moves_history.push(38);
+                moves_history.push(38)
             }
             else {
                 this.move_right();
-                moves_history.push(39);
-                
+                moves_history.push(39)
 
             }
         }
@@ -249,9 +248,9 @@ class View {
         }
 
         if (win == true) {
+            game.running = false;
             let s = new sound('win.wav');
             s.play();
-            game.running = false;
             game.steps
             let t = Math.floor((Date.now() - game.start_time) / 1000)
             game.score += Math.exp(-t * .01);
@@ -259,8 +258,10 @@ class View {
                 game.score -= (game.steps - difficulty) / 20
             }
             game.score = Math.max(game.score, 0);
-            let scorediv = document.getElementById('score');
-            scorediv.innerText += 'Final Score: ' + game.score.toFixed(4);
+            if (game.score < 1) {
+                let scorediv = document.getElementById('score');
+                scorediv.innerText = 'Final Score: ' + game.score.toFixed(4);
+            }
             clearInterval(this.timer);
         }
 
