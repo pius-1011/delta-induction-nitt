@@ -120,12 +120,13 @@ class Grids {
                 moves_history.push(37)
             }
             else if (.50 <= toss < .75) {
-                this.move_right();
-                moves_history.push(39)
+                this.move_up();
+                moves_history.push(38);
             }
             else {
-                this.move_up();
-                moves_history.push(38)
+                this.move_right();
+                moves_history.push(39);
+                
 
             }
         }
