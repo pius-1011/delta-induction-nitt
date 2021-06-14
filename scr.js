@@ -54,7 +54,7 @@ class Grids {
         this.steps = 0;
         this.start_time = Date.now();
         this.running = true;
-        this.difficulty = 30;
+        this.difficulty = 100;
         this.score = 0;
 
         // initialize two 2d matrices 
