@@ -54,7 +54,8 @@ class Grids {
         this.steps = 0;
         this.start_time = Date.now();
         this.running = true;
-        this.difficulty = 10
+        this.difficulty = 20;
+        this.score = 0;
 
         // initialize two 2d matrices 
         let board = new Array(m); //board
@@ -111,20 +112,21 @@ class Grids {
         for (let i = 0; i < this.difficulty; i++) {
             let toss = Math.random();
             if (toss < .25) {
-                this.move_left();
-                moves_history.push(37)
+                this.move_down();
+                moves_history.push(40)
             }
             else if (.25 <= toss < .50) {
-                this.move_up();
-                moves_history.push(38)
+                this.move_left();
+                moves_history.push(37)
             }
             else if (.50 <= toss < .75) {
                 this.move_right();
                 moves_history.push(39)
             }
             else {
-                this.move_down();
-                moves_history.push(40)
+                this.move_up();
+                moves_history.push(38)
+
             }
         }
         this.moves = moves_history;
@@ -192,7 +194,7 @@ class View {
         this.timer = setInterval(() => {
             t.innerText = Math.floor((Date.now() - game.start_time) / 1000)
         }, 1000);
-        
+
     }
 
     update(game) {
@@ -250,6 +252,14 @@ class View {
             s.play();
             game.running = false;
             game.steps
+            let t = Math.floor((Date.now() - game.start_time) / 1000)
+            game.score += Math.exp(-t * .01);
+            if (game.steps > game.difficulty) {
+                game.score -= (game.steps - difficulty) / 20
+            }
+            game.score = Math.max(game.score, 0);
+            let scorediv = document.getElementById('score');
+            scorediv.innerText += 'Final Score: ' + game.score.toFixed(4);
             clearInterval(this.timer);
         }
 
@@ -284,5 +294,5 @@ window.onload = function () {
     view = new View(document.body);
     document.addEventListener('keydown', (evt) => keyPush(game, view, evt));
     view.update(game);
-    
+
 }
