@@ -41,7 +41,7 @@ function sound(src) {
 
 class Tile {
 }
-Tile.colors = ['#08FDC2', '#DAF7A6', '#FFC300', '#FF5733', '#AFFD08','#E7B8C6', '#FFFFFF'];
+Tile.colors = ['#08FDC2', ' #3EA073', '#FFC300', '#FF5733', '#AFFD08','#E7B8C6', '#FFFFFF'];
 
 
 
